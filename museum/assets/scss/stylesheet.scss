@@ -1,0 +1,497 @@
+//GENERAL
+@import "_variables.scss", "_fonts.scss";
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  scroll-behavior: smooth;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  &:visited{
+    color: inherit;
+  }
+}
+
+svg{
+  display: flex;
+}
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.section {
+  padding: 50px 0;
+}
+
+.background-wrapper {
+  &:nth-child(odd) {
+    background-color: $bg-dark;
+  }
+}
+
+.content-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.hover-gold{
+  transition: color .5s ease-in-out;
+}
+.hover-gold:hover {
+  color: $font-gold;
+}
+.fill{
+  transition: fill 0.3s ease-in-out,
+              opacity 0.3s ease-in-out;
+}
+.description{
+  font: 300 1.375rem /38.5px "Roboto", sans-serif;
+}
+.heading {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font: 5rem /90px "Forum", sans-serif;
+  padding: 25px 0;
+  border-bottom: solid 3px $dark-red;
+  transition: color .8s ease-in-out;
+}
+
+//HEADER
+.header-wrapper {
+  background-color: $bg-dark;
+}
+.content-wrapper:hover .heading{
+  color: $font-gold;
+};
+.header {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  min-height: 200px;
+  color: white;
+}
+
+.header__logo {
+  text-transform: uppercase;
+
+  &>h1 {
+    display: inline-block;
+    padding: 0 20px;
+    letter-spacing: 5px;
+    font: 1.75rem /50px "Forum", sans-serif;
+  }
+}
+
+.header__nav {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+  text-transform: capitalize;
+  font: 100 1.375rem /50px "Roboto", sans-serif;
+}
+
+.header__nav-item {
+  padding: 0 38px;
+  letter-spacing: 2px;
+  transition: color .3s ease-in-out;
+
+  &:last-child {
+    padding-right: 0px;
+  }
+
+  &:first-child {
+    padding-left: 0px;
+  }
+}
+
+//WELCOME SECTION
+.welcome {
+  display: block;
+  padding: 90px 0;
+  min-height: 750px;
+  color: white;
+  background-image: url('assets/pictures/welcome.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.welcome__description {
+  max-width: 600px;
+
+  &>span {
+    display: inline-block;
+    font: 300 1.75rem "Roboto", sans-serif;
+    letter-spacing: 2px;
+  }
+  &>h2{
+    border: none;
+  }
+}
+
+.welcome__button {
+  margin-top: 75px;
+  width: 360px;
+  height: 75px;
+  background-color: $dark-red;
+  font: 100 1.375rem "Roboto", sans-serif;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+
+  &:hover {
+    background-color: $font-gold;
+  }
+}
+
+//VIRTUAL TOUR SECTION
+.virtual-tour {
+  min-height: 1265px;
+  padding-bottom: 25px;
+
+  & .heading {
+    color: $font-gold;
+  }
+
+  & img {
+    display: block;
+  }
+}
+
+.virtual-tour__gallery {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 36px;
+}
+
+.virtual-tour__card {
+  cursor: pointer;
+  padding: 39px 0;
+
+  &>h3 {
+    text-transform: uppercase;
+    font: 2rem "Forum", sans-serif;
+    letter-spacing: 5px;
+    padding: 25px 0px 10px;
+  }
+
+  &:nth-child(3n+2) {
+    padding: 38px 60px;
+  }
+
+  &:hover .virtual-tour__card-description {
+    width: 100%;
+  }
+}
+
+.virtual-tour__card-description {
+  width: 68%;
+  border-top: solid 2px $dark-red;
+  transition: width 1s ease-in-out;
+
+  & span {
+    display: block;
+    padding: 10px 0;
+    font: 100 1.375rem "Roboto", sans-serif;
+  }
+
+  & span:last-child {
+    font-size: 1.125rem;
+    padding: 0;
+  }
+}
+
+//PICTURE EXPLORE
+.picture-explore {
+  min-height: 865px;
+  color: white;
+}
+
+.picture-explore__wrapper {
+  display: flex;
+}
+
+.picture-explore__description {
+  max-width: 660px;
+  &>p {
+    padding: 12.5px 0;
+  }
+
+  &>p>span {
+    color: $font-gold;
+  }
+
+  &>h2+p {
+    margin-top: 62.5px;
+  }
+
+  &+img {
+    display: block;
+    padding: 40px 0 25px 61px;
+  }
+}
+
+//VIDEO JOURNEY
+.video-journey {
+  min-height: 1010px;
+}
+
+.player {
+  padding: 40px 0;
+  position: relative;
+
+  & img {
+    display: block;
+  }
+}
+
+.player__pannel {
+  display: flex;
+  align-items: center;
+  background-color: $bg-dark;
+  min-height: 85px;
+  padding: 0 20px;
+  & > button:not(:first-child){
+    padding: 0 20px;
+  }
+  & > button:hover .fill{
+    fill: $font-gold;
+    opacity: 0.5;
+  }
+}
+
+.player__play {
+  position: absolute;
+  top: calc(50% - 153px);
+  left: calc(50% - 116px);
+  background-color: transparent;
+}
+
+.player__range {
+  background: linear-gradient(to right, #24809E 0%, #24809E 48%, #C4C4C4 40%, #C4C4C4 100%);
+  height: 8px;
+  width: 877px;
+  outline: none;
+  transition: background 450ms ease-in;
+  cursor: pointer;
+  margin: 0 21px;
+  -webkit-appearance: none;
+  &::-webkit-slider-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    background: #fff;
+  }
+}
+
+.volume__range{
+  width: 168px;
+}
+
+.video-journey__description{
+  display: flex;
+  justify-content: space-between;
+  & > h2{
+    color: $font-gold;
+    padding-top: 0;
+    border: none;
+  }
+  & > p{
+    max-width: 720px;
+    padding: 10px 0;
+  }
+}
+//BUY TICKETS
+.buy-tickets{
+  color: white;
+  min-height: 895px;
+  & button{
+    color: white;
+    display: inline-block;
+  }
+}
+.buy-tickets__wrapper{
+  display: flex;
+  justify-content: space-between;
+  padding: 75px 0 25px;
+}
+.buy-tickets__order{
+  display: inherit;
+  justify-content: space-between;
+  min-width: 720px;
+  padding-left: 60px;
+  & p{
+    font: 700 1.75rem "Roboto", sans-serif;
+  }
+  & span, input[type="number"], .buy-tickets__amount > button{
+    font: 300 1.375rem "Roboto", sans-serif;
+  }
+}
+.buy-tickets__type{
+  display: inherit;
+  flex-direction: column;
+  & > p:first-child{
+    padding-bottom: 25px;
+  }
+  & > label{
+    padding: 25px 0;
+    display: flex;
+    align-items: center;
+  }
+  & span{
+    padding: 0 23px;
+  }
+}
+.buy-tickets__amount{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+    & > p{
+      text-align: end;
+    }
+    & > button{
+      width: 175px;
+      height: 50px;
+      background: white;
+      color: black;
+      margin-top: 20px;
+      letter-spacing: 2px;
+      transition: background 0.5s ease-in-out;
+    }
+    & > button:hover{
+      background: $font-gold;
+    }
+}
+.buy-tickets__description{
+  padding-bottom: 20px;
+  & > span{
+    padding: 11px 0 14px;
+    display: block;
+  }
+  & + p{
+    letter-spacing: 1.65px;
+    padding: 30px 0;
+  }
+}
+
+.buy-tickets__number{
+  border: solid white 3px;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & > span{
+    padding: 15px 0;
+  }
+  & > button{
+    font: 2rem "Roboto", sans-serif;
+    padding: 0 15px;
+  }
+  & > input{
+    background: inherit;
+    border: none;
+    color: white;
+    width: 45px;
+    padding-left: 15px;
+    outline: none;
+    cursor: default;
+  }
+}
+//CONTACTS
+.contacts__wrapper{
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 0;
+
+}
+.contacts__description{
+  max-width: 282px;
+  padding-top: 50px;
+  & + img{
+    padding-top: 50px;
+  }
+  & > h4{
+    font: 500 1.75rem "Roboto", sans-serif;
+    padding-bottom: 25px;
+  }
+  & > p{
+    font: 300 1.375rem "Roboto", sans-serif;
+    padding: 10px 0;
+  }
+}
+//FOOTER
+.footer{
+  min-height: 300px;
+  background-color: $bg-dark;
+  color: white;
+  text-transform: capitalize;
+  font: 100 1.375rem /50px "Roboto", sans-serif;
+  letter-spacing: 2px;
+  padding-top: 75px;
+  & > .content-wrapper{
+    display: flex;
+  }
+}
+.footer__nav{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-height: 150px;
+  min-width: 500px;
+  margin: 0 122px;
+  & > li{
+    transition: color .8s ease-in-out;
+  }
+}
+.footer__soci{
+  display: flex;
+  margin-left: 135px;
+  margin-top: 85px;
+  & > li{
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: solid 1px #666666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  & > li:not(:first-child){
+    margin-left: 25px;
+  }
+  & > li:hover .fill{
+    fill: $font-gold;
+  }
+  & > li:hover{
+    border-color: $font-gold
+  }
+}
