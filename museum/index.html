@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./assets/icons/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./stylesheets/normalize.css">
   <link rel="stylesheet" href="./stylesheets/stylesheet.min.css">
   <title>Museum</title>
@@ -22,6 +23,7 @@
           <li class="header__nav-item hover-gold"><a href="#visiting">visiting</a></li>
           <li class="header__nav-item hover-gold"><a href="#explore">explore</a></li>
           <li class="header__nav-item hover-gold"><a href="#video">video</a></li>
+          <li class="header__nav-item hover-gold"><a href="#">gallery</a></li>
           <li class="header__nav-item hover-gold"><a href="#tickets">tickets</a></li>
           <li class="header__nav-item hover-gold"><a href="#contacts">contacts</a></li>
         </ul>
@@ -30,12 +32,52 @@
   </header>
   <main class="main">
     <section class="welcome background-wrapper">
-      <div class="content-wrapper">
+      <div class="content-wrapper welcome__container">
         <div class="welcome__description">
           <h2 class="heading">welcome <br>to the louvre</h2>
           <span>From the castle to the museum</span>
+          <button class="welcome__button">Discover the Louvre</button>
         </div>
-        <button class="welcome__button">Discover the Louvre</button>
+        <div class="welcome__slider">
+          <div class="welcome__slider-container">
+            <div class="welcome__slider-item" style="background-image: url('./assets/pictures/welcome/5.jpg');"></div>
+            <div class="welcome__slider-item" style="background-image: url('./assets/pictures/welcome/1.jpg');"></div>
+            <div class="welcome__slider-item" style="background-image: url('./assets/pictures/welcome/2.jpg');"></div>
+            <div class="welcome__slider-item" style="background-image: url('./assets/pictures/welcome/3.jpg');"></div>
+            <div class="welcome__slider-item" style="background-image: url('./assets/pictures/welcome/4.jpg');"></div>
+            <div class="welcome__slider-item" style="background-image: url('./assets/pictures/welcome/5.jpg');"></div>
+            <div class="welcome__slider-item" style="background-image: url('./assets/pictures/welcome/1.jpg');"></div>
+          </div>
+        </div>
+        <div class="welcome__slider-controls">
+          <div class="welcome__slider-pagination">
+            <div class="welcome__slider-number welcome__slider-number_current"><span>01</span></div>
+            <div class="welcome__slider-number"><span>05</span></div>
+            <div class="welcome__slider-current-position">
+              <div class="welcome__slider-position welcome__slider-position_active"></div>
+              <div class="welcome__slider-position"></div>
+              <div class="welcome__slider-position"></div>
+              <div class="welcome__slider-position"></div>
+              <div class="welcome__slider-position"></div>
+            </div>
+          </div>
+          <div class="welcome__slider-buttons">
+            <div class="welcome__slider-button">
+              <svg width="30" height="8" viewBox="0 0 30 8" xmlns="http://www.w3.org/2000/svg">
+                <path class="fill"
+                  d="M5.72254 8C3.90173 6.31339 1.99422 5.08262 0 4.30769V3.69231C1.99422 2.89459 3.90173 1.66382 5.72254 0H7.23988C6.37283 1.4359 5.53468 2.52991 4.72543 3.28205H30V4.71795H4.72543C5.53468 5.47009 6.37283 6.5641 7.23988 8H5.72254Z"
+                  fill="white" />
+              </svg>
+            </div>
+            <div class="welcome__slider-button">
+              <svg width="30" height="8" viewBox="0 0 30 8" xmlns="http://www.w3.org/2000/svg">
+                <path class="fill"
+                  d="M24.2775 1.97284e-06C26.0983 1.68661 28.0058 2.91738 30 3.69231L30 4.30769C28.0058 5.10541 26.0983 6.33618 24.2775 8L22.7601 8C23.6272 6.5641 24.4653 5.47009 25.2746 4.71795L3.48964e-07 4.71795L5.01636e-07 3.28205L25.2746 3.28205C24.4653 2.52992 23.6272 1.4359 22.7601 1.86378e-06L24.2775 1.97284e-06Z"
+                  fill="white" />
+              </svg>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <section id="visiting" class="virtual-tour background-wrapper section">
@@ -285,7 +327,7 @@
       </ul>
     </div>
   </footer>
-  <script src="script.js"></script>
+  <script src="./scripts/script.js"></script>
 </body>
 
 </html>

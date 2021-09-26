@@ -14,14 +14,13 @@ ul {
 
 a {
   text-decoration: none;
-  &:visited{
-    color: inherit;
-  }
+  color: inherit;
 }
 
-svg{
+svg {
   display: flex;
 }
+
 h1,
 h2,
 h3,
@@ -57,24 +56,29 @@ p {
   max-width: 1440px;
   margin: 0 auto;
 }
-.hover-gold{
+
+.hover-gold {
   transition: color .5s ease-in-out;
 }
+
 .hover-gold:hover {
   color: $font-gold;
 }
-.fill{
+
+.fill {
   transition: fill 0.3s ease-in-out,
-              opacity 0.3s ease-in-out;
+    opacity 0.3s ease-in-out;
 }
-.description{
+
+.description {
   font: 300 1.375rem /38.5px "Roboto", sans-serif;
 }
+
 .heading {
   text-transform: uppercase;
   letter-spacing: 5px;
   font: 5rem /90px "Forum", sans-serif;
-  padding: 25px 0;
+  margin: 25px 0;
   border-bottom: solid 3px $dark-red;
   transition: color .8s ease-in-out;
 }
@@ -83,14 +87,12 @@ p {
 .header-wrapper {
   background-color: $bg-dark;
 }
-.content-wrapper:hover .heading{
-  color: $font-gold;
-};
+
 .header {
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  min-height: 200px;
+  min-height: 150px;
   color: white;
 }
 
@@ -114,7 +116,7 @@ p {
 }
 
 .header__nav-item {
-  padding: 0 38px;
+  padding: 0 27.5px;
   letter-spacing: 2px;
   transition: color .3s ease-in-out;
 
@@ -130,24 +132,27 @@ p {
 //WELCOME SECTION
 .welcome {
   display: block;
-  padding: 90px 0;
-  min-height: 750px;
+  min-height: 810px;
   color: white;
-  background-image: url('assets/pictures/welcome.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom;
+}
+
+.welcome__container {
+  position: relative;
 }
 
 .welcome__description {
+  position: relative;
+  z-index: 2;
   max-width: 600px;
+  padding-top: 125px;
 
   &>span {
     display: inline-block;
     font: 300 1.75rem "Roboto", sans-serif;
     letter-spacing: 2px;
   }
-  &>h2{
+
+  &>h2 {
     border: none;
   }
 }
@@ -166,6 +171,111 @@ p {
 
   &:hover {
     background-color: $font-gold;
+  }
+}
+
+.welcome__slider {
+  position: absolute;
+  width: 1000px;
+  height: 750px;
+  overflow-x: hidden;
+  z-index: 1;
+  left: calc(100% - 1000px);
+  top: 0;
+}
+
+.welcome__slider-container {
+  display: flex;
+  flex-wrap: nowrap;
+  transform: translateX(-1000px);
+}
+
+.welcome__slider-item {
+  width: 1000px;
+  height: 750px;
+  flex-shrink: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9612219887955182) 2%, rgba(0, 0, 0, 0.3393732492997199) 17%, rgba(255, 255, 255, 0) 21%);
+  }
+}
+
+.welcome__slider-controls {
+  position: absolute;
+  display: flex;
+  width: 600px;
+  height: 120px;
+  padding: 52px 75px;
+  left: calc(100% - 600px);
+  top: calc(750px - 60px);
+  z-index: 2;
+  background-color: black;
+}
+
+.welcome__slider-pagination {
+  display: flex;
+  line-height: 40px;
+
+  &>div:first-child {
+    border-right: solid 1px white;
+  }
+}
+
+.welcome__slider-number {
+  display: flex;
+  align-items: center;
+  width: 25px;
+  height: 20px;
+  font: 1.375rem "Roboto", sans-serif;
+  padding-left: 10px;
+
+  &:first-child {
+    padding-right: 40px;
+    padding-left: 0;
+  }
+}
+
+.welcome__slider-current-position {
+  display: flex;
+}
+
+.welcome__slider-position {
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  margin-left: 25px;
+  cursor: pointer;
+
+  &:first-child {
+    margin-left: 65px;
+  }
+}
+
+.welcome__slider-position_active {
+  background-color: #D2B183;
+}
+
+.welcome__slider-buttons {
+  display: flex;
+  margin-left: 60px;
+}
+
+.welcome__slider-button {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  cursor: pointer;
+
+  &:hover>svg>path {
+    fill: $font-gold;
+  }
+
+  &:last-child {
+    margin-left: 20px;
   }
 }
 
@@ -238,6 +348,7 @@ p {
 
 .picture-explore__description {
   max-width: 660px;
+
   &>p {
     padding: 12.5px 0;
   }
@@ -276,10 +387,12 @@ p {
   background-color: $bg-dark;
   min-height: 85px;
   padding: 0 20px;
-  & > button:not(:first-child){
+
+  &>button:not(:first-child) {
     padding: 0 20px;
   }
-  & > button:hover .fill{
+
+  &>button:hover .fill {
     fill: $font-gold;
     opacity: 0.5;
   }
@@ -301,6 +414,7 @@ p {
   cursor: pointer;
   margin: 0 21px;
   -webkit-appearance: none;
+
   &::-webkit-slider-thumb {
     width: 15px;
     height: 15px;
@@ -310,111 +424,135 @@ p {
   }
 }
 
-.volume__range{
+.volume__range {
   width: 168px;
 }
 
-.video-journey__description{
+.video-journey__description {
   display: flex;
   justify-content: space-between;
-  & > h2{
+
+  &>h2 {
     color: $font-gold;
     padding-top: 0;
     border: none;
   }
-  & > p{
+
+  &>p {
     max-width: 720px;
     padding: 10px 0;
   }
 }
+
 //BUY TICKETS
-.buy-tickets{
+.buy-tickets {
   color: white;
   min-height: 895px;
-  & button{
+
+  & button {
     color: white;
     display: inline-block;
   }
 }
-.buy-tickets__wrapper{
+
+.buy-tickets__wrapper {
   display: flex;
   justify-content: space-between;
   padding: 75px 0 25px;
 }
-.buy-tickets__order{
+
+.buy-tickets__order {
   display: inherit;
   justify-content: space-between;
   min-width: 720px;
   padding-left: 60px;
-  & p{
+
+  & p {
     font: 700 1.75rem "Roboto", sans-serif;
   }
-  & span, input[type="number"], .buy-tickets__amount > button{
+
+  & span,
+  input[type="number"],
+  .buy-tickets__amount>button {
     font: 300 1.375rem "Roboto", sans-serif;
   }
 }
-.buy-tickets__type{
+
+.buy-tickets__type {
   display: inherit;
   flex-direction: column;
-  & > p:first-child{
+
+  &>p:first-child {
     padding-bottom: 25px;
   }
-  & > label{
+
+  &>label {
     padding: 25px 0;
     display: flex;
     align-items: center;
   }
-  & span{
+
+  & span {
     padding: 0 23px;
   }
 }
-.buy-tickets__amount{
+
+.buy-tickets__amount {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-    & > p{
-      text-align: end;
-    }
-    & > button{
-      width: 175px;
-      height: 50px;
-      background: white;
-      color: black;
-      margin-top: 20px;
-      letter-spacing: 2px;
-      transition: background 0.5s ease-in-out;
-    }
-    & > button:hover{
-      background: $font-gold;
-    }
+
+  &>p {
+    text-align: end;
+  }
+
+  &>button {
+    width: 175px;
+    height: 50px;
+    background: white;
+    color: black;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    transition: background 0.5s ease-in-out;
+  }
+
+  &>button:hover {
+    background: $font-gold;
+  }
 }
-.buy-tickets__description{
+
+.buy-tickets__description {
   padding-bottom: 20px;
-  & > span{
+
+  &>span {
     padding: 11px 0 14px;
     display: block;
   }
-  & + p{
+
+  &+p {
     letter-spacing: 1.65px;
     padding: 30px 0;
   }
 }
 
-.buy-tickets__number{
+.buy-tickets__number {
   border: solid white 3px;
   width: 150px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  & > span{
+
+  &>span {
     padding: 15px 0;
   }
-  & > button{
+
+  &>button {
     font: 2rem "Roboto", sans-serif;
     padding: 0 15px;
   }
-  & > input{
+
+  &>input {
     background: inherit;
     border: none;
     color: white;
@@ -424,30 +562,36 @@ p {
     cursor: default;
   }
 }
+
 //CONTACTS
-.contacts__wrapper{
+.contacts__wrapper {
   display: flex;
   justify-content: space-between;
   padding: 25px 0;
 
 }
-.contacts__description{
+
+.contacts__description {
   max-width: 282px;
   padding-top: 50px;
-  & + img{
+
+  &+img {
     padding-top: 50px;
   }
-  & > h4{
+
+  &>h4 {
     font: 500 1.75rem "Roboto", sans-serif;
     padding-bottom: 25px;
   }
-  & > p{
+
+  &>p {
     font: 300 1.375rem "Roboto", sans-serif;
     padding: 10px 0;
   }
 }
+
 //FOOTER
-.footer{
+.footer {
   min-height: 300px;
   background-color: $bg-dark;
   color: white;
@@ -455,11 +599,13 @@ p {
   font: 100 1.375rem /50px "Roboto", sans-serif;
   letter-spacing: 2px;
   padding-top: 75px;
-  & > .content-wrapper{
+
+  &>.content-wrapper {
     display: flex;
   }
 }
-.footer__nav{
+
+.footer__nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -467,15 +613,18 @@ p {
   max-height: 150px;
   min-width: 500px;
   margin: 0 122px;
-  & > li{
+
+  &>li {
     transition: color .8s ease-in-out;
   }
 }
-.footer__soci{
+
+.footer__soci {
   display: flex;
   margin-left: 135px;
   margin-top: 85px;
-  & > li{
+
+  &>li {
     cursor: pointer;
     width: 48px;
     height: 48px;
@@ -485,13 +634,16 @@ p {
     align-items: center;
     justify-content: center;
   }
-  & > li:not(:first-child){
+
+  &>li:not(:first-child) {
     margin-left: 25px;
   }
-  & > li:hover .fill{
+
+  &>li:hover .fill {
     fill: $font-gold;
   }
-  & > li:hover{
+
+  &>li:hover {
     border-color: $font-gold
   }
 }
