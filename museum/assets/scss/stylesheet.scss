@@ -43,7 +43,7 @@ p {
 }
 
 .section {
-  padding: 50px 0;
+  padding: 75px 0;
 }
 
 .background-wrapper {
@@ -78,9 +78,9 @@ p {
   text-transform: uppercase;
   letter-spacing: 5px;
   font: 5rem /90px "Forum", sans-serif;
-  margin: 25px 0;
   border-bottom: solid 3px $dark-red;
   transition: color .8s ease-in-out;
+  padding-bottom: 25px;
 }
 
 //HEADER
@@ -144,7 +144,7 @@ p {
   position: relative;
   z-index: 2;
   max-width: 600px;
-  padding-top: 125px;
+  padding-top: 150px;
 
   &>span {
     display: inline-block;
@@ -282,7 +282,6 @@ p {
 //VIRTUAL TOUR SECTION
 .virtual-tour {
   min-height: 1265px;
-  padding-bottom: 25px;
 
   & .heading {
     color: $font-gold;
@@ -296,22 +295,20 @@ p {
 .virtual-tour__gallery {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 36px;
+  justify-content: center;
+  padding-top: 75px;
+  row-gap: 75px;
+  column-gap: 60px;
 }
 
 .virtual-tour__card {
   cursor: pointer;
-  padding: 39px 0;
 
   &>h3 {
     text-transform: uppercase;
     font: 2rem "Forum", sans-serif;
     letter-spacing: 5px;
     padding: 25px 0px 10px;
-  }
-
-  &:nth-child(3n+2) {
-    padding: 38px 60px;
   }
 
   &:hover .virtual-tour__card-description {
