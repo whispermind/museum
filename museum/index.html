@@ -169,8 +169,8 @@
             as Mona Lisa or Hammurabi's Code</p>
         </div>
         <div class="player">
-          <img src="assets/pictures/video.jpg" alt="video">
-          <div class="player__pannel">
+          <div class="player__preview" style="background-image: url('./assets/pictures/video/poster0.jpg');"></div>
+          <div class="player__controls">
             <button class="player__play">
               <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path class="fill"
@@ -181,25 +181,12 @@
                   fill="white" />
               </svg>
             </button>
-            <button class="player__prev">
-              <svg width="27" height="30" viewBox="0 0 27 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path class="fill" d="M3.79999 14.75L26.14 29.49C26.14 7.26 26.14 18.17 26.14 0L3.79999 14.75Z"
-                  fill="#B3B3B3" />
-                <path class="fill" d="M0 29.49H4.19V0H0V29.49Z" fill="#B3B3B3" />
-              </svg>
-            </button>
             <button class="player__stop">
               <svg width="23" height="30" viewBox="0 0 23 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path class="fill" d="M22.35 14.75L0 0C0 22.23 0 11.32 0 29.49L22.35 14.75Z" fill="#B3B3B3" />
               </svg>
             </button>
-            <button class="player__next">
-              <svg width="27" height="30" viewBox="0 0 27 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path class="fill" d="M22.35 14.75L0 0C0 22.23 0 11.32 0 29.49L22.35 14.75Z" fill="#B3B3B3" />
-                <path class="fill" d="M26.15 0H21.96V29.49H26.15V0Z" fill="#B3B3B3" />
-              </svg>
-            </button>
-            <input class="player__range" type="range" value="48">
+            <input class="player__range" type="range" value="53">
             <button class="player__volume">
               <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path class="fill" d="M17.86 0L3.63 10.42V19.07L17.86 29.49C17.83 7.26 17.86 18.17 17.86 0Z"
@@ -222,6 +209,57 @@
                 <path class="fill" d="M23.05 0V4.24H31.48V12.71H35.7001V0H23.05Z" fill="#B3B3B3" />
               </svg>
             </button>
+          </div>
+        </div>
+        <div class="video-journey__slider">
+          <div class="video-journey__slider-container">
+            <div class="video-journey__slider-item" style="background-image: url(./assets/pictures/video/poster3.jpg);">
+              <div data-tittle='Exposition - Le Corps et l’Ame. De Dona...' class="video-journey__item-heading"></div>
+              <div class="video-journey__item-dropdown"><svg width="4" height="16" viewBox="0 0 4 16" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <circle class="fill" cx="2" cy="2" r="2" fill="white" />
+                  <circle class="fill" cx="2" cy="8" r="2" fill="white" />
+                  <circle class="fill" cx="2" cy="14" r="2" fill="white" />
+                </svg>
+              </div>
+            </div>
+            <div class="video-journey__slider-item" style="background-image: url(./assets/pictures/video/poster1.jpg);">
+              <div data-tittle='Au Louvre ! La Venus de Milo' class="video-journey__item-heading"></div>
+              <div class="video-journey__item-dropdown"><svg width="4" height="16" viewBox="0 0 4 16" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <circle class="fill" cx="2" cy="2" r="2" fill="white" />
+                  <circle class="fill" cx="2" cy="8" r="2" fill="white" />
+                  <circle class="fill" cx="2" cy="14" r="2" fill="white" />
+                </svg>
+              </div>
+            </div>
+            <div class="video-journey__slider-item" style="background-image: url(./assets/pictures/video/poster2.jpg);">
+              <div data-tittle='Promenade dans les collections mesop...' class="video-journey__item-heading"></div>
+              <div class="video-journey__item-dropdown"><svg width="4" height="16" viewBox="0 0 4 16" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <circle class="fill" cx="2" cy="2" r="2" fill="white" />
+                  <circle class="fill" cx="2" cy="8" r="2" fill="white" />
+                  <circle class="fill" cx="2" cy="14" r="2" fill="white" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="video-journey__slider-navigation">
+            <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="fill" fill-rule="evenodd" clip-rule="evenodd"
+                d="M5.4777 0.219168C5.87773 0.564178 5.94259 1.19347 5.62256 1.62473L2.37578 6.00004L5.62256 10.3753C5.94259 10.8066 5.87773 11.4359 5.4777 11.7809C5.07766 12.1259 4.49394 12.056 4.17391 11.6247L0 6.00004L4.17391 0.375342C4.49394 -0.0559202 5.07766 -0.125842 5.4777 0.219168ZM9.65184 0.219168C10.0519 0.564178 10.1167 1.19347 9.7967 1.62473L6.54992 6.00004L9.7967 10.3753C10.1167 10.8066 10.0519 11.4359 9.65184 11.7809C9.2518 12.1259 8.66808 12.056 8.34805 11.6247L4.17414 6.00004L8.34805 0.375342C8.66808 -0.0559202 9.2518 -0.125842 9.65184 0.219168Z"
+                fill="#999999" />
+            </svg>
+            <div class="video-journey__pagination-item video-journey__item-active"></div>
+            <div class="video-journey__pagination-item"></div>
+            <div class="video-journey__pagination-item"></div>
+            <div class="video-journey__pagination-item"></div>
+            <div class="video-journey__pagination-item"></div>
+            <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="fill" fill-rule="evenodd" clip-rule="evenodd"
+                d="M0.348163 0.219168C0.748196 -0.125842 1.33192 -0.0559202 1.65195 0.375342L5.82586 6.00004L1.65194 11.6247C1.33192 12.056 0.748195 12.1259 0.348162 11.7809C-0.0518709 11.4359 -0.116729 10.8066 0.203297 10.3753L3.45008 6.00004L0.203298 1.62473C-0.116728 1.19347 -0.05187 0.564177 0.348163 0.219168ZM4.5223 0.219168C4.92234 -0.125841 5.50606 -0.0559197 5.82609 0.375342L10 6.00004L5.82609 11.6247C5.50606 12.056 4.92234 12.1259 4.5223 11.7809C4.12227 11.4359 4.05741 10.8066 4.37744 10.3753L7.62422 6.00004L4.37744 1.62473C4.05741 1.19347 4.12227 0.564178 4.5223 0.219168Z"
+                fill="#999999" />
+            </svg>
           </div>
         </div>
       </div>
