@@ -576,6 +576,30 @@ p {
   background-color: #333;
 }
 
+//ART GALLERY
+.art-gallery {
+  height: 2200px;
+  overflow: hidden;
+}
+
+.art-gallery .heading {
+  color: white;
+  border: none;
+}
+
+.art-gallery__container {
+  margin-top: 75px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 36px;
+  row-gap: 24px;
+
+  & img {
+    max-width: 456px;
+  }
+}
+
 
 //BUY TICKETS
 .buy-tickets {
