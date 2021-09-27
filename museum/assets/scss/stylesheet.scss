@@ -71,7 +71,7 @@ p {
 }
 
 .description {
-  font: 300 1.375rem /38.5px "Roboto", sans-serif;
+  font: 300 1.376rem /38.5px "Roboto", sans-serif;
 }
 
 .heading {
@@ -357,10 +357,30 @@ p {
   &>h2+p {
     margin-top: 62.5px;
   }
+}
 
-  &+img {
-    display: block;
-    padding: 40px 0 25px 61px;
+.picture-explore__slider {
+  position: relative;
+  display: flex;
+  margin: 10px 0 0 60px;
+
+  & svg {
+    position: absolute;
+    left: 420px;
+    cursor: pointer;
+  }
+}
+
+.picture-explore__image {
+  width: 440px;
+  min-height: 700px;
+  overflow: hidden;
+  background-image: url(../assets/pictures/explore/before.jpg);
+
+  &:last-child {
+    width: 280px;
+    background-image: url(../assets/pictures/explore/after.jpg);
+    background-position: right;
   }
 }
 
