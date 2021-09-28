@@ -47,7 +47,7 @@ p {
 }
 
 .background-wrapper {
-  &:nth-child(odd) {
+  &:nth-child(odd):not(.contacts) {
     background-color: $bg-dark;
   }
 }
@@ -83,6 +83,10 @@ p {
   padding-bottom: 25px;
 }
 
+.section:nth-child(even) .heading {
+  color: $font-gold;
+}
+
 //HEADER
 .header-wrapper {
   background-color: $bg-dark;
@@ -99,7 +103,7 @@ p {
 .header__logo {
   text-transform: uppercase;
 
-  &>h1 {
+  &>.main-heading {
     display: inline-block;
     padding: 0 20px;
     letter-spacing: 5px;
@@ -288,10 +292,6 @@ p {
 .virtual-tour {
   min-height: 1265px;
 
-  & .heading {
-    color: $font-gold;
-  }
-
   & img {
     display: block;
   }
@@ -403,7 +403,6 @@ p {
   }
 
   &>h2 {
-    color: $font-gold;
     padding-top: 0;
     border: none;
   }
@@ -545,15 +544,16 @@ p {
   justify-content: center;
   margin-top: 40px;
 
-  &>svg {
+  &>button {
     cursor: pointer;
   }
 
-  &>svg:last-child {
+  &>button:last-child {
     margin-left: 20px;
   }
 
-  &>svg:hover .fill {
+  &>svg:hover,
+  button:hover .fill {
     fill: $dark-red;
   }
 }
@@ -597,35 +597,36 @@ p {
 
   & img {
     max-width: 456px;
+    transition: transform 1s ease-in-out;
+  }
+
+  & img:hover {
+    transform: scale(1.05);
   }
 }
 
 
 //BUY TICKETS
 .buy-tickets {
-  color: white;
   min-height: 895px;
 
   & button {
-    color: white;
     display: inline-block;
   }
 }
 
 .buy-tickets__wrapper {
   display: flex;
-  justify-content: space-between;
-  padding: 75px 0 25px;
+  margin-top: 75px;
 }
 
 .buy-tickets__order {
   display: inherit;
-  justify-content: space-between;
   min-width: 720px;
-  padding-left: 60px;
 
   & p {
     font: 700 1.75rem "Roboto", sans-serif;
+    margin-bottom: 25px;
   }
 
   & span,
@@ -638,37 +639,76 @@ p {
 .buy-tickets__type {
   display: inherit;
   flex-direction: column;
+  padding-left: 63px;
 
-  &>p:first-child {
-    padding-bottom: 25px;
+  & input[type="radio"] {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
   }
 
   &>label {
-    padding: 25px 0;
+    position: relative;
     display: flex;
     align-items: center;
+    margin-top: 25px;
+    cursor: pointer;
   }
 
   & span {
-    padding: 0 23px;
+    margin-left: 37px;
   }
+
+  & span:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: solid 2px black;
+    top: 5px;
+    left: 0;
+  }
+
+  & span:after {
+    content: '';
+    position: absolute;
+    display: none;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: black;
+    top: 10px;
+    left: 5px;
+  }
+
+  & input:checked~span:after {
+    display: block;
+  }
+
 }
 
 .buy-tickets__amount {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  flex-grow: 1;
 
   &>p {
     text-align: end;
   }
 
+  &>p:first-child {
+    margin-bottom: 15px;
+  }
+
   &>button {
     width: 175px;
     height: 50px;
-    background: white;
-    color: black;
-    margin-top: 20px;
+    background: black;
+    color: white;
+    margin-top: 27px;
     letter-spacing: 2px;
     transition: background 0.5s ease-in-out;
   }
@@ -679,58 +719,72 @@ p {
 }
 
 .buy-tickets__description {
-  padding-bottom: 20px;
+  margin-top: 10px;
 
   &>span {
-    padding: 11px 0 14px;
     display: block;
   }
 
   &+p {
     letter-spacing: 1.65px;
-    padding: 30px 0;
+    margin-top: 50px;
   }
 }
 
 .buy-tickets__number {
-  border: solid white 3px;
+  position: relative;
+  border: solid black 3px;
   width: 150px;
   height: 50px;
   display: flex;
   align-items: center;
+  margin-top: 15px;
   justify-content: space-between;
-
-  &>span {
-    padding: 15px 0;
-  }
+  padding: 0 14px;
 
   &>button {
     font: 2rem "Roboto", sans-serif;
-    padding: 0 15px;
   }
 
   &>input {
+    text-align: center;
     background: inherit;
     border: none;
-    color: white;
-    width: 45px;
-    padding-left: 15px;
     outline: none;
+    width: 45px;
     cursor: default;
+    position: absolute;
+    left: calc(50% - 20px);
   }
 }
 
+.buy-tickets__paralax {
+  margin-top: 75px;
+  width: 100%;
+  height: 400px;
+  background-image: url(../assets/pictures/parallax.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 //CONTACTS
+.contacts {
+  padding-top: 0;
+
+  .heading {
+    color: $font-gold;
+  }
+}
+
 .contacts__wrapper {
+  margin-top: 25px;
   display: flex;
   justify-content: space-between;
-  padding: 25px 0;
-
 }
 
 .contacts__description {
   max-width: 282px;
-  padding-top: 50px;
+  margin-top: 50px;
 
   &+img {
     padding-top: 50px;
@@ -738,18 +792,18 @@ p {
 
   &>h4 {
     font: 500 1.75rem "Roboto", sans-serif;
-    padding-bottom: 25px;
+    margin-bottom: 50px
   }
 
   &>p {
     font: 300 1.375rem "Roboto", sans-serif;
-    padding: 10px 0;
+    margin-top: 25px;
   }
 }
 
 //FOOTER
 .footer {
-  min-height: 300px;
+  min-height: 392px;
   background-color: $bg-dark;
   color: white;
   text-transform: capitalize;
@@ -757,7 +811,7 @@ p {
   letter-spacing: 2px;
   padding-top: 75px;
 
-  &>.content-wrapper {
+  & .content-wrapper {
     display: flex;
   }
 }
@@ -765,20 +819,21 @@ p {
 .footer__nav {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   flex-wrap: wrap;
   max-height: 150px;
-  min-width: 500px;
-  margin: 0 122px;
+  margin: 0 0 0 122px;
+  column-gap: 170px;
+  row-gap: 25px;
 
   &>li {
     transition: color .8s ease-in-out;
+    height: 26px;
   }
 }
 
 .footer__soci {
   display: flex;
-  margin-left: 135px;
+  margin-left: 654px;
   margin-top: 85px;
 
   &>li {
@@ -803,4 +858,48 @@ p {
   &>li:hover {
     border-color: $font-gold
   }
+}
+
+.footer-rss {
+  display: flex;
+  align-items: center;
+  border-top: solid 3px #333;
+  min-height: 125px;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 40px;
+
+  & span {
+    transition: color 1s ease-in-out;
+  }
+
+  & span:nth-child(2) {
+    margin-left: 70px;
+  }
+
+  & span:not(:first-child):hover {
+    color: $font-gold;
+  }
+}
+
+//BOOKING FORM
+.booking {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: 999;
+  padding-top: 90px;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  transition: transform 2s ease-in-out;
+  left: 200vh;
+}
+
+
+.booking__close {
+  padding-top: 30px;
+  cursor: pointer;
+  z-index: 1000;
 }
