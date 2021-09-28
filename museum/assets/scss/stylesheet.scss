@@ -988,7 +988,7 @@ p {
 .booking__ticket-counter {
   margin-top: 15px;
 
-  & label {
+  &>div {
     display: flex;
     justify-content: space-between;
     align-items: center;
