@@ -8,7 +8,7 @@ function popup() {
     }
   });
   openButton.addEventListener('click', (event) => {
-    form.style.transform = 'translate(-200vh)';
+    form.style.transform = 'translate(200vh)';
   });
 }
 export default popup
