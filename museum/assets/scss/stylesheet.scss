@@ -24,7 +24,9 @@ svg {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0;
   font-weight: 400;
@@ -917,6 +919,16 @@ p {
     padding: 90px 235px;
     display: flex;
   }
+
+  &:after {
+    content: calc(2 + 2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+  }
 }
 
 .booking__info {
@@ -934,9 +946,9 @@ p {
     border: solid 1px #030303;
   }
 
-  & form>input,
-  select {
-    width: 100%;
+  & form {
+    display: flex;
+    align-items: flex-start;
   }
 }
 
@@ -966,6 +978,14 @@ p {
   display: flex;
   column-gap: 20px;
 
+  &~select {
+    width: 100%;
+  }
+
+  &~input {
+    width: 100%;
+  }
+
   & input {
     width: 190px;
   }
@@ -994,7 +1014,7 @@ p {
     align-items: center;
   }
 
-  & label:last-child {
+  &>div:last-child {
     margin-top: 20px;
   }
 
@@ -1029,5 +1049,116 @@ p {
   position: absolute;
   top: 30px;
   right: 30px;
+  cursor: pointer;
+}
+
+.form__order {
+  position: absolute;
+  top: 0;
+  left: 440px;
+  width: 530px;
+  height: 663px;
+  border: solid 1px #030303;
+}
+
+.form__wrapper {
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+  min-width: 530px;
+
+  & img {
+    object-fit: contain;
+  }
+}
+
+.form__order-description {
+  & p {
+    margin: 5px 0 0 15px;
+    font-weight: 300;
+  }
+}
+
+.form__order-description-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.form__order-heading {
+  font-weight: 500;
+  font-size: 2rem;
+  color: #272727;
+}
+
+.form__order-afterheading {
+  font-weight: 500;
+  font-size: 1.375rem;
+  color: $dark-red;
+  padding: 5px 0;
+}
+
+.form__order-objects {
+  margin-top: 20px;
+  font-size: 1.375rem;
+  padding-bottom: 10px;
+  border-bottom: solid 2px $dark-red;
+}
+
+.form__ticket-payment {
+  display: flex;
+  align-items: center;
+
+  & span:last-child {
+    flex-grow: 1;
+    text-align: end;
+  }
+}
+
+.form__basic-amount,
+.form__senior-amount {
+  width: 32px;
+  height: 20px;
+  background-color: black;
+  color: #A4A4A3;
+  text-align: center;
+  font-size: 1.125rem;
+  border-radius: 5px;
+
+  &+span {
+    margin-left: 10px;
+  }
+}
+
+.form__card {
+  width: 470px;
+  height: 241px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  background-image: url(../assets/pictures/card.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+.form__order-total {
+  margin-top: 10px;
+  display: flex;
+  font-size: 2rem;
+  justify-content: space-between;
+
+  &>span {
+    font-weight: 500;
+  }
+}
+
+.form__submit {
+  font-size: 1.375rem;
+  background: $dark-red;
+  color: white;
+  width: 220px;
+  height: 45px;
+  text-transform: capitalize;
+  align-self: flex-end;
   cursor: pointer;
 }
