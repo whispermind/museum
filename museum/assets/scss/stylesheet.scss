@@ -528,7 +528,7 @@ p {
     content: '';
     width: 40px;
     height: 40px;
-    background-image: url(../assets/icons/video_heading.jpg);
+    background-image: url(../assets/icons/video_heading.png);
     border-radius: 50%;
   }
 
@@ -753,6 +753,11 @@ p {
   &+p {
     letter-spacing: 1.65px;
     margin-top: 50px;
+  }
+
+  &+p>span {
+    font-size: inherit;
+    font-weight: inherit;
   }
 }
 
@@ -1473,7 +1478,7 @@ p {
   .buy-tickets__order {
     min-width: 270px;
     justify-content: flex-end;
-    margin-left: 35px;
+    margin-left: 34px;
   }
 
   .buy-tickets__type {
@@ -1575,5 +1580,327 @@ p {
     margin-top: 30px;
     padding: 0 20px;
     justify-content: space-between
+  }
+}
+
+@media(max-width: 1023px) {
+
+  //GENERAL
+  .content-wrapper {
+    max-width: 728px;
+  }
+
+  .heading {
+    font-size: 2.5rem;
+    line-height: 60px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  //HEADER
+  .header {
+    min-height: 110px;
+  }
+
+  //WELCOME
+  .welcome {
+    min-height: 861px;
+  }
+
+  .welcome__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .welcome__description {
+    padding-top: 0;
+    text-align: center;
+
+    &>.heading {
+      line-height: 60px;
+    }
+
+    &>span {
+      font-size: 1.25rem;
+    }
+  }
+
+  .welcome__button {
+    display: none;
+  }
+
+  .welcome__slider {
+    position: initial;
+    margin-top: 50px;
+    width: 728px;
+    height: 546px;
+  }
+
+  .welcome__slider-container {
+    transform: translate(-728px);
+  }
+
+  .welcome__slider-item {
+    width: 728px;
+    height: 546px;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .welcome__slider-controls {
+    margin-top: -7px;
+    position: initial;
+    max-height: 100px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  //VIRTUAL TOUR
+  .virtual-tour {
+    min-height: 1225px;
+  }
+
+  .virtual-tour__gallery {
+    padding-top: 40px;
+    column-gap: 56px;
+    row-gap: 40px;
+  }
+
+  .virtual-tour__card {
+    & img {
+      width: 280px;
+      height: 180px;
+    }
+
+    & h3 {
+      font-size: 1.375rem;
+    }
+  }
+
+  .virtual-tour__card-description {
+    width: 100%;
+
+    &>span {
+      font-size: 1.125rem;
+    }
+
+    &>span:last-child {
+      font-size: 1rem;
+    }
+
+    &::before {
+      top: -3px;
+    }
+  }
+
+  //PICTURE EXPLORE
+  .picture-explore__description {
+    width: 100%;
+
+    &>p {
+      display: none;
+    }
+
+    &>.heading {
+      width: 100%;
+    }
+  }
+
+  .picture-explore__slider {
+    margin-top: 40px;
+  }
+
+  .picture-explore__image {
+    min-height: 705px;
+
+    &:last-child {
+      width: 287px;
+    }
+  }
+
+  //VIDEO JOURNEY
+  .video-journey {
+    min-height: 837px;
+  }
+
+  .player {
+    margin-top: 20px;
+  }
+
+  .player__play {
+    top: calc(50% - 71px);
+    left: calc(50% - 47px);
+
+    &>svg {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  .player__preview {
+    height: 329px;
+  }
+
+  .video-journey__slider-container {
+    column-gap: 20px;
+    margin-top: 20px;
+
+    &>.video-journey__slider-item:last-child {
+      display: none;
+    }
+  }
+
+  .video-journey__slider-item {
+    width: 354px;
+    height: 199px;
+  }
+
+  .player__controls {
+    padding: 0 30px;
+    min-height: 53px;
+
+    &>input {
+      margin: 0;
+    }
+
+    & .volume__range {
+      margin-left: 35px;
+      width: 486px;
+    }
+  }
+
+  .player__duration-range {
+    position: absolute;
+    margin: 0;
+    top: calc(100% - 58px);
+    left: 0;
+    width: 100%;
+    height: 5px;
+  }
+
+  .video-journey__slider-navigation {
+    margin-top: 20px;
+  }
+
+  .video-journey__pagination-item {
+    width: 10px;
+    height: 10px;
+  }
+
+  //ART GALLERY
+  .art-gallery {
+    height: 1220px;
+  }
+
+  .art-gallery__container {
+    column-gap: 24px;
+
+    &>img {
+      width: 352px;
+    }
+  }
+
+  //BUY TICKETS
+  .buy-tickets__wrapper {
+    margin-top: 40px;
+
+    &>img {
+      width: 444px;
+      height: 340px;
+    }
+  }
+
+  .buy-tickets__order {
+    margin-left: 5px;
+  }
+
+  .buy-tickets__description {
+    margin-top: 35px;
+
+    &+p {
+      margin-top: 35px;
+    }
+  }
+
+  .buy-tickets__amount {
+    margin-right: 40px;
+
+    &>button {
+      margin-top: 40px;
+    }
+  }
+
+  .buy-tickets__number {
+    margin-top: 5px;
+  }
+
+  .buy-tickets__paralax {
+    margin-top: 40px;
+    height: 300px;
+  }
+
+  //CONTACTS
+  .contacts {
+    padding-top: 0;
+    min-height: 885px;
+  }
+
+  .contacts__wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+
+    &>img {
+      width: 728px;
+      height: 476px;
+      margin: 40px 0 0 0;
+      object-fit: none;
+      object-position: center center;
+    }
+  }
+
+  .contacts__description {
+    &>h4 {
+      margin-bottom: 40px;
+      font-size: 1.25rem;
+    }
+
+    &>p {
+      font-size: 1.125rem;
+    }
+  }
+
+  //FOOTER
+  .footer {
+    min-height: 411px;
+    padding-top: 55px;
+  }
+
+  .footer-upper>.content-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .footer__nav {
+    font-size: 1.125rem;
+    margin-left: 97px;
+    column-gap: 160px;
+    row-gap: 18px;
+
+  }
+
+  .footer__soci {
+    margin: 20px 0 0 0;
+    width: 100%;
+    justify-content: flex-end;
+
+    &>li:last-child {
+      margin-right: 90px;
+    }
   }
 }
