@@ -27,6 +27,12 @@
           <li class="header__nav-item hover-gold"><a href="#tickets">tickets</a></li>
           <li class="header__nav-item hover-gold"><a href="#contacts">contacts</a></li>
         </ul>
+        <svg class="header__burger-menu" width="32" height="18" viewBox="0 0 32 18" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <rect class="fill" width="32" height="2" fill="white" />
+          <rect class="fill" y="8" width="32" height="2" fill="white" />
+          <rect class="fill" y="16" width="32" height="2" fill="white" />
+        </svg>
       </div>
     </nav>
   </header>
@@ -207,7 +213,7 @@
               </svg>
             </button>
             <input class="player__range volume__range" type="range" value="42">
-            <button>
+            <button class="player__fullscreen">
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path class="fill" d="M31.48 31.6299H23.05V35.8599H35.7001V23.1499H31.48V31.6299Z" fill="#B3B3B3" />
                 <path class="fill" d="M4.22 23.1499H0V35.8599H12.65V31.6299H4.22V23.1499Z" fill="#B3B3B3" />
@@ -316,7 +322,7 @@
                   <button>+</button>
                 </div>
               </div>
-              <p>Total €220</p>
+              <p>Total €<span>220</span></p>
               <button>Buy Now</button>
             </div>
           </div>
