@@ -1,4 +1,4 @@
-function randomizer() {
+export default function randomizer() {
   let container = document.querySelector('.art-gallery__container');
   let images = [];
   for (let i = 1; i <= 15; i++) {
@@ -10,5 +10,3 @@ function randomizer() {
   images.sort(() => Math.random() - 0.5);
   images.forEach((elem) => container.append(elem));
 };
-
-export default randomizer

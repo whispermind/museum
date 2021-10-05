@@ -1,4 +1,4 @@
-function popup() {
+export default function popup() {
   let form = document.querySelector('.booking'),
     closeButton = document.querySelector('.booking__close > svg'),
     openButton = document.querySelector('.buy-tickets__amount > button');
@@ -11,4 +11,3 @@ function popup() {
     form.style.transform = 'translate(200vh)';
   });
 }
-export default popup

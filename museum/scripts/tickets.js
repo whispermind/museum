@@ -1,4 +1,4 @@
-function ticketCounter() {
+export default function ticketCounter() {
   let seniorContainer = document.querySelector('.senior'),
     seniorInput = seniorContainer.querySelector('input'),
     seniorButtons = seniorContainer.querySelectorAll('button'),
@@ -14,4 +14,3 @@ function ticketCounter() {
     if (event.target === basicButtons[1] && basicInput.value < 20) basicInput.value++
   })
 };
-export default ticketCounter

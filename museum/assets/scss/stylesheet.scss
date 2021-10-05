@@ -100,6 +100,7 @@ p {
   align-items: center;
   min-height: 150px;
   color: white;
+  position: relative;
 }
 
 .header__logo {
@@ -135,8 +136,22 @@ p {
   }
 }
 
-.header__burger-menu {
+.header__burger-container {
+  cursor: pointer;
   display: none;
+}
+
+.header__burger-gallery {
+  display: none;
+  column-gap: 20px;
+  row-gap: 20px;
+  width: 658px;
+  top: calc(100% + 70px + 263px);
+  left: 30px;
+  position: absolute;
+  flex-wrap: wrap;
+  transition: transform 1s ease-in-out;
+  transform: translate(-500%);
 }
 
 //WELCOME SECTION
@@ -1205,11 +1220,16 @@ p {
 
   .header__nav {
     position: absolute;
-    top: 165px;
-    left: -100%;
+    display: none;
+    top: calc(100% + 35px);
+    transform: translate(-500%);
+    transition: transform 1s ease-in-out;
     margin: 0;
     flex-direction: column;
     z-index: 999;
+    margin-left: 30px;
+    font-size: 1.25rem;
+    line-height: 44px;
   }
 
   .header__nav-item {
@@ -1218,15 +1238,15 @@ p {
 
     &::after {
       content: '>';
-      margin-left: 25px;
+      left: 110%;
+      position: absolute;
     }
   }
 
-  .header__burger-menu {
+  .header__burger-container {
     display: block;
-    cursor: pointer;
 
-    &:hover>.fill {
+    &:hover .fill {
       fill: $font-gold;
     }
   }
