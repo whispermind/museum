@@ -3,7 +3,7 @@ export default function randomizer() {
   let images = [];
   for (let i = 1; i <= 15; i++) {
     let elem = document.createElement('img');
-    elem.src = `./assets/pictures/gallery/${i}.jpg`;
+    elem.src = `./assets/pictures/gallery/${i}.webp`;
     elem.alt = 'gallery picture';
     images.push(elem);
   }
