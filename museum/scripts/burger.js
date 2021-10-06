@@ -5,7 +5,6 @@ export default function Burger() {
     heading = document.querySelector('.welcome__description'),
     container = document.querySelector('.welcome__container'),
     gallery = document.querySelector('.header__burger-gallery');
-
   burger.addEventListener('click', burgerOpen, { once: true });
   function burgerOpen() {
     burger.innerHTML = `<svg class="hedaer__burger-icon" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,6 +16,11 @@ export default function Burger() {
     burger.addEventListener('click', burgerClose, { once: true });
     nav.addEventListener('click', navValidation);
     setTimeout(() => nav.style.transform = 'translate(0)', 0);
+    nav.addEventListener('transitionend', () => {
+      document.body.addEventListener('click', (event) => {
+        if (!event.target.closest('.header__nav-item')) { burgerClose(); };
+      }, { once: true });
+    }, { once: true });
     if (document.documentElement.clientWidth < 1024) smallResolutionOpen();
   }
   function burgerClose() {
@@ -38,7 +42,8 @@ export default function Burger() {
   }
   function smallResolutionOpen() {
     container.style.display = 'none';
-    if (document.documentElement.clientWidth > 750) { gallery.style.display = 'flex'; setTimeout(() => gallery.style.transform = 'translate(0)'), 0 }
+    gallery.style.display = 'flex';
+    setTimeout(() => gallery.style.transform = 'translate(0)', 0);
   }
   function smallResolutionClose() {
     nav.addEventListener('transitionend', () => { gallery.style.display = ''; container.style.display = ''; }, { once: true });

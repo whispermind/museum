@@ -101,6 +101,11 @@ p {
   min-height: 150px;
   color: white;
   position: relative;
+
+  & .footer__soci {
+    display: none;
+    margin-top: 25px;
+  }
 }
 
 .header__logo {
@@ -143,15 +148,19 @@ p {
 
 .header__burger-gallery {
   display: none;
-  column-gap: 20px;
-  row-gap: 20px;
   width: 658px;
   top: calc(100% + 70px + 263px);
   left: 30px;
   position: absolute;
-  flex-wrap: wrap;
   transition: transform 1s ease-in-out;
   transform: translate(-500%);
+
+  &>div {
+    display: flex;
+    column-gap: 20px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+  }
 }
 
 //WELCOME SECTION
@@ -928,19 +937,32 @@ p {
 }
 
 //BOOKING FORM
-.booking {
+.form-wrapper {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
+  transform: translate(-200vh);
+  display: none;
+  transition: transform 1s ease-in-out;
   z-index: 999;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+.booking {
   background-color: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
-  transition: transform 1s ease-in-out;
   font: 1.125rem "Roboto", sans-serif;
   text-transform: capitalize;
-  left: -200vh;
+  min-height: 100vh;
+  width: 100vw;
 
   &>.content-wrapper {
     position: relative;
@@ -1078,18 +1100,17 @@ p {
 
 .booking__close {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: -45px;
+  right: -570px;
   cursor: pointer;
 }
 
 .form__order {
-  position: absolute;
-  top: 0;
   left: 440px;
   width: 530px;
   height: 663px;
   border: solid 1px #030303;
+  margin-left: 40px;
 }
 
 .form__wrapper {
@@ -1166,10 +1187,48 @@ p {
   height: 241px;
   margin-top: 10px;
   margin-bottom: 5px;
-  background-image: url(../assets/pictures/card.webp);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center center;
+  font: 0.75rem "Roboto", sans-serif;
+  position: relative;
+}
+
+.form__card-upper,
+.form__card-lower {
+  width: 360px;
+  height: 211px;
+  padding: 15px 20px;
+
+  & input {
+    height: 35px;
+    margin-top: 5px;
+    border: none;
+  }
+}
+
+.form__card-upper {
+  background-image: url(../assets/pictures/form/2.jpg);
+  z-index: 50;
+  position: relative;
+}
+
+.form__card-input:not(:first-child) {
+  margin-top: 10px;
+}
+
+.form__card-input:not(:last-child) {
+  width: 215px;
+
+  & input {
+    width: 100%;
+  }
+
+  &>div {
+    display: flex;
+    column-gap: 15px;
+  }
+}
+
+.form__card-input:last-child input {
+  width: 100%;
 }
 
 .form__order-total {
@@ -1183,6 +1242,42 @@ p {
   }
 }
 
+.form__card-lower {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  top: -180px;
+  right: -110px;
+  background-image: url(../assets/pictures/form/1.jpg);
+  z-index: 4;
+
+
+  &::before {
+    content: 'CVC/CVV';
+    position: absolute;
+    z-index: 5;
+    top: 75px;
+    right: 35px;
+    font: 0.75rem "Roboto", sans-serif;
+  }
+
+  &::after {
+    content: 'The last 3 or 4 digits on back of the card';
+    max-width: 52px;
+    position: absolute;
+    z-index: 5;
+    right: 31px;
+    top: 133px;
+    font: 0.75rem "Roboto", sans-serif;
+    text-transform: none;
+  }
+
+  &>input {
+    margin-top: 80px;
+    width: 75px;
+  }
+}
+
 .form__submit {
   font-size: 1.375rem;
   background: $dark-red;
@@ -1192,10 +1287,11 @@ p {
   text-transform: capitalize;
   align-self: flex-end;
   cursor: pointer;
+  margin-top: 25px;
 }
 
 //MEDIA
-@media(max-width: 1453px) {
+@media(max-width: 1460px) {
 
   //GENERAL
   .content-wrapper {
@@ -1216,12 +1312,22 @@ p {
   .header {
     min-height: 130px;
     justify-content: space-between;
+
+    & .footer__soci {
+      display: flex;
+      justify-content: center;
+      margin: 35px 0 0;
+    }
+
+    & .footer__soci>li:last-child {
+      margin-right: 0;
+    }
   }
 
   .header__nav {
     position: absolute;
     display: none;
-    top: calc(100% + 35px);
+    top: calc(100% + 20px);
     transform: translate(-500%);
     transition: transform 1s ease-in-out;
     margin: 0;
@@ -1229,7 +1335,6 @@ p {
     z-index: 999;
     margin-left: 30px;
     font-size: 1.25rem;
-    line-height: 44px;
   }
 
   .header__nav-item {
@@ -1248,6 +1353,15 @@ p {
 
     &:hover .fill {
       fill: $font-gold;
+    }
+  }
+
+  .header__burger-gallery {
+    flex-direction: column;
+
+    &>div {
+      padding-bottom: 35px;
+      border-bottom: solid 1px white;
     }
   }
 
@@ -1603,7 +1717,26 @@ p {
   }
 }
 
-@media(max-width: 1023px) {
+.booking {
+  max-width: 100vw;
+
+  &>.content-wrapper {
+    justify-content: center;
+  }
+
+  .booking__heading {
+    line-height: 55px;
+    padding-bottom: 0;
+  }
+
+  .booking__form-datatime {
+    margin-top: 40px;
+  }
+}
+
+
+
+@media(max-width: 1040px) {
 
   //GENERAL
   .content-wrapper {
@@ -1622,6 +1755,10 @@ p {
   //HEADER
   .header {
     min-height: 110px;
+  }
+
+  .header__nav {
+    top: calc(100% + 25px);
   }
 
   //WELCOME
@@ -1923,6 +2060,53 @@ p {
       margin-right: 90px;
     }
   }
+
+  //FORM
+  .form-wrapper {
+    justify-content: center;
+  }
+
+  .booking {
+    position: relative;
+
+    &>.content-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .booking__info {
+    min-width: 530px;
+  }
+
+  .form__order {
+    margin-left: 0;
+    margin-top: 50px;
+    height: unset;
+  }
+
+  .booking__heading {
+    font-size: 50px;
+  }
+
+  .booking__close {
+    right: 0;
+  }
+
+  .booking {
+    & .booking__form-datatime {
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    &>.content-wrapper {
+      width: 590px;
+    }
+  }
+
+  .booking__form-datatime input {
+    width: 251px;
+  }
 }
 
 @media(max-width: 767px) {
@@ -1950,6 +2134,22 @@ p {
 
     &>.main-heading {
       font-size: 1rem;
+    }
+  }
+
+  .header__burger-gallery {
+    width: auto;
+
+    &>div {
+      column-gap: 12px;
+      padding-bottom: 20px;
+      border-bottom: solid 1px white;
+    }
+
+    & img {
+      width: 95px;
+      height: 95px;
+      object-fit: cover;
     }
   }
 
@@ -2261,6 +2461,131 @@ p {
   }
 
   .footer-rss>span:first-child+span {
+    display: none;
+  }
+
+  //FORM
+  .booking {
+    & .booking__form-datatime {
+      flex-direction: column;
+    }
+  }
+
+  .booking__heading {
+    font-size: 2rem;
+  }
+
+  .booking__form-datatime input {
+    width: 100%;
+  }
+
+  .booking__info {
+    max-height: unset;
+  }
+
+  .form__card-lower {
+    top: 0;
+    right: 0;
+    margin-top: 25px;
+  }
+
+  .form__card {
+    height: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .booking__info,
+  .form__wrapper,
+  .form__order,
+  .form__card {
+    min-width: 360px;
+    width: 360px;
+  }
+
+  .form__card-lower,
+  .form__card-upper {
+    width: 330px;
+    background-size: contain;
+  }
+
+  .form__order-description {
+    padding: 0;
+  }
+
+  .form__order {
+    margin-top: 50px;
+  }
+
+  .form__wrapper {
+    padding: 25px 15px;
+  }
+
+  .form__card {
+    margin-top: 15px;
+    align-items: unset;
+  }
+
+  .form__submit {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 419px) {
+
+  //GENERAL
+  .content-wrapper {
+    max-width: 300px;
+  }
+
+  //WELCOME
+  .welcome__slider {
+    width: 280px;
+    height: 220px;
+  }
+
+  .welcome__slider-container {
+    transform: translate(-280px);
+  }
+
+  .welcome__slider-item {
+    width: 280px;
+    height: 220px;
+  }
+
+  //EXPLORE
+  .picture-explore__slider {
+    width: 300px;
+  }
+
+  .picture-explore__image {
+    width: 50%;
+
+    &:last-child {
+      width: 50%;
+    }
+  }
+
+  .buy-tickets__wrapper>img {
+    width: 300px;
+  }
+
+  .contacts__wrapper>img {
+    width: 300px;
+  }
+
+  .footer__nav {
+    align-items: center;
+    max-height: unset;
+    min-width: 300px;
+  }
+
+  .video-journey__slider-container {
+    justify-content: center;
+  }
+
+  .video-journey__slider-item:nth-child(2) {
     display: none;
   }
 }
