@@ -44,6 +44,10 @@ p {
   padding: 0;
 }
 
+img {
+  width: 100%;
+}
+
 .section {
   padding: 75px 0;
 }
@@ -110,6 +114,11 @@ p {
 
 .header__logo {
   text-transform: uppercase;
+
+  &>img {
+    width: 49px;
+    height: 26px;
+  }
 
   &>.main-heading {
     display: inline-block;

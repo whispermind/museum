@@ -5,6 +5,7 @@ export default function randomizer() {
     let elem = document.createElement('img');
     elem.src = `./assets/pictures/gallery/${i}.webp`;
     elem.alt = 'gallery picture';
+    elem.classList.add('gallery-image')
     images.push(elem);
   }
   images.sort(() => Math.random() - 0.5);
