@@ -180,6 +180,7 @@ p {
 }
 
 .welcome__description {
+  display: inline-block;
   position: relative;
   z-index: 2;
   max-width: 600px;
@@ -234,7 +235,8 @@ p {
 .welcome__slider-container {
   display: flex;
   flex-wrap: nowrap;
-  transform: translateX(-1000px);
+  position: absolute;
+  left: -1000px
 }
 
 .welcome__slider-item {
@@ -410,26 +412,23 @@ p {
 
 .picture-explore__slider {
   position: relative;
-  display: flex;
   margin: 10px 0 0 60px;
 
   & svg {
     position: absolute;
     left: 420px;
     cursor: pointer;
+    z-index: 9;
   }
 }
 
 .picture-explore__image {
-  width: 440px;
   height: 700px;
   overflow: hidden;
-  background-image: url(../assets/pictures/explore/before.webp);
+  position: absolute;
 
   &:last-child {
-    width: 280px;
-    background-image: url(../assets/pictures/explore/after.webp);
-    background-position: right;
+    width: 440px;
   }
 }
 
@@ -1296,7 +1295,7 @@ p {
 }
 
 //MEDIA
-@media(max-width: 1460px) {
+@media(max-width: 1439px) {
 
   //GENERAL
   .content-wrapper {
@@ -1395,7 +1394,7 @@ p {
   }
 
   .welcome__slider-container {
-    transform: translateX(-700px);
+    left: -700px;
   }
 
   .welcome__slider-item {
@@ -1741,7 +1740,7 @@ p {
 
 
 
-@media(max-width: 1040px) {
+@media(max-width: 1023px) {
 
   //GENERAL
   .content-wrapper {
@@ -1795,14 +1794,15 @@ p {
   }
 
   .welcome__slider {
-    position: initial;
+    position: relative;
+    left: 0;
     margin-top: 50px;
     width: 728px;
     height: 546px;
   }
 
   .welcome__slider-container {
-    transform: translate(-728px);
+    left: -728px
   }
 
   .welcome__slider-item {
@@ -1815,7 +1815,6 @@ p {
   }
 
   .welcome__slider-controls {
-    margin-top: -7px;
     position: initial;
     max-height: 100px;
     width: 100%;
@@ -2164,6 +2163,7 @@ p {
   }
 
   .welcome__description {
+
     &>.heading {
       line-height: 40px;
       padding-bottom: 25px;
@@ -2181,7 +2181,7 @@ p {
   }
 
   .welcome__slider-container {
-    transform: translate(-380px);
+    left: -380px
   }
 
   .welcome__slider-position {
@@ -2551,7 +2551,7 @@ p {
   }
 
   .welcome__slider-container {
-    transform: translate(-280px);
+    left: -280px
   }
 
   .welcome__slider-item {
