@@ -6,6 +6,7 @@ import Burger from "./burger.js";
 import welcomeSlider from "./welcome_slider.js";
 import imageCompare from "./image_compare.js";
 import formCounter from "./form.js";
+import videoSlider from "./video_slider.js";
 (function () {
   randomizer();
   ticketCounter();
@@ -13,6 +14,7 @@ import formCounter from "./form.js";
   popup();
   Burger();
   welcomeSlider();
+  videoSlider();
   imageCompare();
   formCounter();
 })();
