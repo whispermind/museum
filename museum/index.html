@@ -346,15 +346,15 @@
             <div class="buy-tickets__type">
               <p>Ticket Type</p>
               <label>
-                <input type="radio" name="ticket-type" checked>
-                <span>Permanent exhibition</span>
+                <input data-price='20' type="radio" name="ticket-type" checked>
+                <span>Permanent Exhibition</span>
               </label>
               <label>
-                <input type="radio" name="ticket-type">
-                <span>Temporary exhibition</span>
+                <input data-price='25' ; type="radio" name="ticket-type">
+                <span>Temporary Exhibition</span>
               </label>
               <label>
-                <input type="radio" name="ticket-type">
+                <input data-price='40' ; type="radio" name="ticket-type">
                 <span>Combined Admission</span>
               </label>
             </div>
@@ -364,7 +364,7 @@
                 <span>Basic 18+</span>
                 <div class="buy-tickets__number basic">
                   <button>-</button>
-                  <input type="number" value="1" readonly>
+                  <input data-name='basic' type="number" value="1" readonly>
                   <button>+</button>
                 </div>
               </div>
@@ -372,11 +372,11 @@
                 <span>Senior 65+</span>
                 <div class="buy-tickets__number senior">
                   <button>-</button>
-                  <input type="number" value="1" readonly>
+                  <input data-name='senior' type="number" value="1" readonly>
                   <button>+</button>
                 </div>
               </div>
-              <p>Total €<span>220</span></p>
+              <p>Total €<span class="total">30</span></p>
               <button>Buy Now</button>
             </div>
           </div>
@@ -466,7 +466,7 @@
     </div>
   </footer>
   <div class="form-wrapper">
-    <form action="/">
+    <form action="">
       <div class="booking">
         <div class="content-wrapper">
           <div class="booking__info">
@@ -482,17 +482,17 @@
             <p class="booking__afterheading">Tour to Louvre</p>
             <div>
               <div class="booking__form-datatime">
-                <input type="date" name="form-data">
-                <input type="time" name="form-time">
+                <input class="warning" type="date" name="form-data" required>
+                <input type="time" name="form-time" min="9:00" max="18:00" step="1800" required>
               </div>
-              <input type="text" placeholder="Name" name="form-name">
-              <input type="email" placeholder="E-mail" name="form-email">
-              <input type="tel" placeholder="Phone" name="-form-tel">
+              <input type="text" placeholder="Name" minlength="3" maxlength="15" name="form-name" required>
+              <input type="email" placeholder="E-mail" name="form-email" required>
+              <input type="tel" maxlength="10" placeholder="Phone" name="-form-tel" required>
               <select>
-                <option value="" disabled selected>Ticket Type</option>
-                <option value="">temporary exhibition</option>
-                <option value="">combined exhibition</option>
-                <option value="">permanent exhibition</option>
+                <option disabled>Ticket Type</option>
+                <option value="25">Temporary Exhibition</option>
+                <option value="40">Combined Admission</option>
+                <option value='20'>Permanent Exhibition</option>
               </select>
               <div class="booking__ticket-amount">
                 <p class="booking__ticket-heading">entry ticket</p>
@@ -500,17 +500,17 @@
                   <div>
                     <span>basic 18+ (20 €)</span>
                     <div class="booking__basic-counter">
-                      <button>-</button>
+                      <button type="button">-</button>
                       <input type="number" value="2" readonly>
-                      <button>+</button>
+                      <button type="button">+</button>
                     </div>
                   </div>
                   <div>
                     <span>senior 65+ (10 €)</span>
                     <div class="booking__senior-counter">
-                      <button>-</button>
+                      <button type="button">-</button>
                       <input type="number" value="2" readonly>
-                      <button>+</button>
+                      <button type="button">+</button>
                     </div>
                   </div>
                 </div>
@@ -530,8 +530,8 @@
                   <div>
                     <h4 class="form__order-heading">overview</h4>
                     <h5 class="form__order-afterheading">tour to louvre</h5>
-                    <p class="form__order-day">friday, august 19</p>
-                    <p class="form__order-time">16 : 30</p>
+                    <p class="form__order-day">friday, 19 august</p>
+                    <p class="form__order-time">16:30</p>
                     <p class="form__order-type">temporary exhibition</p>
                   </div>
                   <img loading='lazy' src="./assets/pictures/form/form.webp" alt="louvre">

@@ -89,6 +89,7 @@ p {
   color: $font-gold;
 }
 
+
 //HEADER
 .header-wrapper {
   background-color: $bg-dark;
@@ -999,7 +1000,7 @@ p {
   select {
     height: 45px;
     margin-top: 20px;
-    padding: 0 45px;
+    padding: 0 15px;
     border: solid 1px #030303;
   }
 
@@ -1076,9 +1077,8 @@ p {
   }
 
   & input {
-    display: flex;
-    justify-content: center;
-    width: 35px;
+    text-align: center;
+    width: 45px;
     height: 25px;
     margin: 0;
     padding: 0 0 0 9px;
