@@ -21,7 +21,7 @@ function applyAnimation() {
       if (coords.top < window.innerHeight - (img.height / 4)) {
         img.classList.add('gallery-image-active');
       };
-      if (coords.top < 0) img.classList.remove('gallery-image-active');
+      if (coords.top < 0 || coords.top > window.innerHeight) img.classList.remove('gallery-image-active');
     });
   }
 }
