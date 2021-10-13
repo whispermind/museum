@@ -628,14 +628,20 @@ p {
 
   & img {
     max-width: 456px;
-    transition: transform 1s ease-in-out;
-  }
-
-  & img:hover {
-    transform: scale(1.05);
+    transition: transform 1.5s ease-in-out,
+      opacity 1s ease-in-out;
   }
 }
 
+.gallery-image {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.gallery-image-active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 //BUY TICKETS
 .buy-tickets {
