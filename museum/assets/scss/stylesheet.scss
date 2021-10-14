@@ -461,9 +461,10 @@ p {
   margin-top: 70px;
 }
 
-.player__preview iframe {
+.player__preview video {
   width: 100%;
   height: 650px;
+  object-fit: cover;
   display: block;
 }
 
@@ -495,8 +496,13 @@ p {
   background-color: transparent;
 }
 
+.player__stop,
+.player__volume {
+  width: 36px;
+}
+
 .player__range {
-  background: linear-gradient(to right, #710707 0%, #710707 53%, #C4C4C4 40%, #C4C4C4 100%);
+  background: linear-gradient(to right, #710707 0%, #710707 0%, #C4C4C4 0%, #C4C4C4 100%);
   height: 8px;
   width: 930px;
   outline: none;
@@ -515,7 +521,7 @@ p {
 
 .volume__range {
   width: 155px;
-  background: linear-gradient(to right, #710707 0%, #710707 42%, #C4C4C4 40%, #C4C4C4 100%);
+  background: linear-gradient(to right, #710707 0%, #710707 100%, #C4C4C4 40%, #C4C4C4 100%);
 }
 
 .video-journey__slider {
@@ -620,15 +626,15 @@ p {
 .art-gallery__container {
   margin-top: 75px;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
   flex-wrap: wrap;
+  flex-direction: column;
+  max-height: 3000px;
   column-gap: 36px;
   row-gap: 24px;
 
   & img {
     max-width: 456px;
-    transition: transform 1.5s ease-in-out,
+    transition: transform 1s ease-in-out,
       opacity 1s ease-in-out;
   }
 }
@@ -1509,7 +1515,7 @@ p {
     margin-top: 40px;
   }
 
-  .player__preview iframe {
+  .player__preview video {
     height: 444px;
   }
 
@@ -1575,6 +1581,7 @@ p {
 
   .art-gallery__container {
     margin-top: 40px;
+    max-height: 2000px;
 
     &>img {
       width: 304px;
@@ -1883,7 +1890,7 @@ p {
     }
   }
 
-  .player__preview iframe {
+  .player__preview video {
     height: 329px;
   }
 
@@ -1940,7 +1947,10 @@ p {
   }
 
   .art-gallery__container {
+    max-height: 1800px;
     column-gap: 24px;
+
+    max-height: 1000px;
 
     &>img {
       width: 352px;
@@ -2245,7 +2255,7 @@ p {
     min-height: 551px;
   }
 
-  .player__preview iframe {
+  .player__preview video {
     height: 172px;
   }
 
@@ -2334,6 +2344,8 @@ p {
   }
 
   .art-gallery__container {
+    max-height: 1500px;
+
     &>img {
       width: 178px;
     }

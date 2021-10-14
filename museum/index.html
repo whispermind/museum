@@ -232,10 +232,9 @@
             as Mona Lisa or Hammurabi's Code</p>
         </div>
         <div class="player">
-          <div class="player__preview"><iframe loading="lazy" width="560" height="315"
-              src="https://www.youtube.com/embed/Vi5D6FKhRmo" title="YouTube video player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe></div>
+          <div class="player__preview">
+            <video src="./assets/pictures/video/video1.mp4"></video>
+          </div>
           <div class="player__controls">
             <button class="player__play">
               <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -252,7 +251,7 @@
                 <path class="fill" d="M22.35 14.75L0 0C0 22.23 0 11.32 0 29.49L22.35 14.75Z" fill="#B3B3B3" />
               </svg>
             </button>
-            <input class="player__range player__duration-range" type="range" value="53">
+            <input class="player__range player__duration-range" step='1' type="range" value="0">
             <button class="player__volume">
               <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path class="fill" d="M17.86 0L3.63 10.42V19.07L17.86 29.49C17.83 7.26 17.86 18.17 17.86 0Z"
@@ -266,7 +265,7 @@
                   fill="#B3B3B3" />
               </svg>
             </button>
-            <input class="player__range volume__range" type="range" value="42">
+            <input class="player__range volume__range" step='1' type="range" value="10" max="10">
             <button class="player__fullscreen">
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path class="fill" d="M31.48 31.6299H23.05V35.8599H35.7001V23.1499H31.48V31.6299Z" fill="#B3B3B3" />

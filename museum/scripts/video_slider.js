@@ -3,7 +3,7 @@ export default function videoSlider() {
     sliderItems = document.querySelectorAll('.video-journey__slider-item'),
     butts = document.querySelector('.video-journey__slider-navigation'),
     paginationItems = Array.from(document.querySelectorAll('.video-journey__pagination-item')),
-    preview = document.querySelector('.player__preview'),
+    player = document.querySelector('.player video'),
     paginationContainer = document.querySelector('.video-journey__pagination');
   let position = 1, processed = false;
 
@@ -14,7 +14,6 @@ export default function videoSlider() {
     slider.style.transition = '';
     setPosition();
   });
-
   function navigationHandler(event) {
     if (!event.target.closest('.video-journey__slider-navbutton') || processed) return
     processed = true;
@@ -30,6 +29,7 @@ export default function videoSlider() {
     move();
   }
   function move(event) {
+    stopper();
     slider.style.transition = 'left .4s ease-in-out';
     slider.addEventListener('transitionend', afterMove, { once: true });
     setPosition();
@@ -46,8 +46,6 @@ export default function videoSlider() {
       width = parseInt(item.width, 10),
       gap = parseInt(getComputedStyle(slider).columnGap, 10);
     slider.style.left = `${-position * (width + gap)}px`;
-    preview.innerHTML = '';
-    preview.append(sliderItems[position + 1].querySelector('iframe').cloneNode(true));
   }
   function checkPosition() {
     if (position === sliderItems.length - 3) position = 1;
@@ -55,6 +53,12 @@ export default function videoSlider() {
     slider.style.transition = '';
     setPosition();
   }
+  function stopper() {
+    let iframes = slider.querySelectorAll('iframe');
+    iframes.forEach(elem => {
+      elem.src = elem.src;
+    })
+  };
 }
 
 

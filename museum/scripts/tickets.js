@@ -5,13 +5,19 @@ export default function ticketCounter() {
     seniorButtons = container.querySelectorAll('.senior button'),
     basicInput = container.querySelector('.basic input'),
     basicButtons = container.querySelectorAll('.basic button'),
-    button = container.querySelector('.buy-tickets__amount > button');
-
+    button = container.querySelector('.buy-tickets__amount > button'),
+    storageBasic = localStorage.getItem('basicInput'),
+    storageSenior = localStorage.getItem('seniorInput');
+  if (storageSenior) seniorInput.value = storageSenior;
+  if (storageBasic) basicInput.value = storageBasic;
+  recount();
   container.addEventListener('click', (event) => {
     if (event.target === seniorButtons[0] && seniorInput.value >= 1) seniorInput.value--
     if (event.target === seniorButtons[1] && seniorInput.value < 20) seniorInput.value++
     if (event.target === basicButtons[0] && basicInput.value >= 1) basicInput.value--
     if (event.target === basicButtons[1] && basicInput.value < 20) basicInput.value++
+    localStorage.setItem('seniorInput', seniorInput.value);
+    localStorage.setItem('basicInput', basicInput.value);
     recount(event);
   });
 
@@ -25,6 +31,6 @@ export default function ticketCounter() {
       totalPrice = seniorsPrice + basicsPrice;
 
     total.textContent = totalPrice;
-    if (event.target === button) formDataSet({ basicsPrice, seniorsPrice, totalPrice, typePrice, basicAmount, seniorAmount });
+    if (event && event.target === button) formDataSet({ basicsPrice, seniorsPrice, totalPrice, typePrice, basicAmount, seniorAmount });
   }
 };
