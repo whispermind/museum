@@ -46,6 +46,7 @@ export default function videoSlider() {
       width = parseInt(item.width, 10),
       gap = parseInt(getComputedStyle(slider).columnGap, 10);
     slider.style.left = `${-position * (width + gap)}px`;
+    player.src = `./assets/pictures/video/video${position}.mp4`;
   }
   function checkPosition() {
     if (position === sliderItems.length - 3) position = 1;
