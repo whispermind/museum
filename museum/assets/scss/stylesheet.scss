@@ -44,6 +44,14 @@ p {
   padding: 0;
 }
 
+.wrong-input:after {
+  content: 'wrong input';
+  position: absolute;
+  color: red;
+  width: 100px;
+  top: -20px
+}
+
 .section {
   padding: 75px 0;
 }
@@ -989,6 +997,11 @@ p {
     border: solid 1px #030303;
   }
 
+  .warning {
+    border: 2px solid red;
+    position: relative;
+  }
+
   & form {
     display: flex;
     align-items: flex-start;
@@ -1020,6 +1033,7 @@ p {
   margin-top: 40px;
   display: flex;
   column-gap: 20px;
+  position: relative;
 
   &~select {
     width: 100%;

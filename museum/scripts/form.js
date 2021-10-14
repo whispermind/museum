@@ -5,14 +5,50 @@ export default function formCounter() {
     seniorInput = document.querySelector('.booking__senior-counter > input'),
     basicInput = document.querySelector('.booking__basic-counter > input'),
     select = document.querySelector('select'),
+    container = document.querySelector('.booking__form-datatime'),
     inputDate = document.querySelector('input[type="date"]'),
     inputTime = document.querySelector('input[type="time"]'),
+    inputName = document.querySelector('input[name="form-name"]'),
+    inputEmail = document.querySelector('input[type="email"]'),
+    inputTel = document.querySelector('input[type="tel"]'),
     orderDate = document.querySelector('.form__order-day'),
     orderTime = document.querySelector('.form__order-time');
+
   tickets.addEventListener('click', counterHandler);
   select.addEventListener('change', counterHandler);
   inputTime.addEventListener('change', counterHandler);
+  inputTime.addEventListener('change', (event) => {
+    if (!/\d{2}:30|00/.test(event.target.value)) { event.target.classList.add('warning'); }
+    else event.target.classList.remove('warning');
+    warning()
+  });
   inputDate.addEventListener('change', counterHandler);
+  inputDate.addEventListener('change', (event) => {
+    if (new Date(event.target.value) < Date.now()) event.target.classList.add('warning');
+    else event.target.classList.remove('warning');
+    warning()
+  });
+  inputName.addEventListener('change', (event) => {
+    if (/[1-9!@#$%^&*()_+=-`~{};:'"<>,/.]/.test(event.target.value)) event.target.classList.add('warning');
+    else event.target.classList.remove('warning');
+    warning()
+  })
+  inputEmail.addEventListener('change', (event) => {
+    if (!/[A-Z0-9_-]{3,15}@[A-Z]{4,}\.[A-Z]{2,}/i.test(event.target.value)) event.target.classList.add('warning');
+    else event.target.classList.remove('warning');
+    warning()
+  });
+  inputTel.addEventListener('change', event => {
+    if (/\d{10,}/.test(event.target.value) || /[A-Z!@#$%^&*()_+=-`~{};:'"<>,/.]/.test(event.target.value)) event.target.classList.add('warning');
+    else event.target.classList.remove('warning');
+    warning()
+  });
+  function warning() {
+    if (!document.querySelectorAll('.warning').length) container.classList.remove('wrong-input');
+    else container.classList.add('wrong-input');
+  }
+
+
   function counterHandler(event) {
     if (event.target === basicButtons[0] && basicInput.value >= 1) basicInput.value--
     if (event.target === basicButtons[1] && basicInput.value < 20) basicInput.value++
