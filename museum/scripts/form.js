@@ -13,7 +13,8 @@ export default function formCounter() {
     inputTel = document.querySelector('input[type="tel"]'),
     orderDate = document.querySelector('.form__order-day'),
     orderTime = document.querySelector('.form__order-time');
-
+  let date = new Date();
+  inputDate.min = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
   tickets.addEventListener('click', counterHandler);
   select.addEventListener('change', counterHandler);
   inputTime.addEventListener('change', counterHandler);
