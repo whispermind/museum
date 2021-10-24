@@ -421,6 +421,7 @@ p {
 
 .picture-explore__slider {
   position: relative;
+  width: 720px;
   margin: 10px 0 0 60px;
 
   & svg {
@@ -639,6 +640,7 @@ p {
   max-height: 3000px;
   column-gap: 36px;
   row-gap: 24px;
+  overflow: hidden;
 
   & img {
     max-width: 456px;
@@ -1488,6 +1490,10 @@ p {
   }
 
   //PICTURE EXPLORE
+  .picture-explore {
+    min-height: 1150px;
+  }
+
   .picture-explore__wrapper {
     flex-direction: column;
     align-items: center;
@@ -1616,7 +1622,7 @@ p {
   .buy-tickets__order {
     min-width: 270px;
     justify-content: flex-end;
-    margin-left: 34px;
+    margin-left: 25px;
   }
 
   .buy-tickets__type {
@@ -1861,6 +1867,10 @@ p {
   }
 
   //PICTURE EXPLORE
+  .picture-explore {
+    min-height: 908px
+  }
+
   .picture-explore__description {
     width: 100%;
 
@@ -1879,10 +1889,6 @@ p {
 
   .picture-explore__image {
     height: 705px;
-
-    &:last-child {
-      width: 287px;
-    }
   }
 
   //VIDEO JOURNEY
@@ -1963,7 +1969,6 @@ p {
   .art-gallery__container {
     max-height: 1800px;
     column-gap: 24px;
-
     max-height: 1000px;
 
     &>img {
@@ -2014,6 +2019,11 @@ p {
   .contacts {
     padding-top: 0;
     min-height: 885px;
+
+    & iframe {
+      margin-top: 40px;
+      width: 100%;
+    }
   }
 
   .contacts__wrapper {
@@ -2245,6 +2255,8 @@ p {
   }
 
   .picture-explore__slider {
+    width: 380px;
+    height: 368px;
     margin-top: 40px;
 
     &>svg {
@@ -2254,13 +2266,16 @@ p {
   }
 
   .picture-explore__image {
-    width: 230px;
     height: 368px;
+    width: 380px;
     background-size: cover;
-    background-position: left center;
 
     &:last-child {
-      width: 150px;
+      width: 230px;
+    }
+
+    img {
+      height: 368px;
     }
   }
 
@@ -2572,11 +2587,7 @@ p {
   }
 
   .picture-explore__image {
-    width: 50%;
-
-    &:last-child {
-      width: 50%;
-    }
+    width: 100%;
   }
 
   .buy-tickets__wrapper>img {
