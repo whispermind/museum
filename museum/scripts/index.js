@@ -7,6 +7,7 @@ import imageCompare from "./image_compare.js";
 import formCounter from "./form.js";
 import videoSlider from "./video_slider.js";
 import customPlayer from "./custom-player.js";
+
 (function () {
   randomizer();
   ticketCounter();

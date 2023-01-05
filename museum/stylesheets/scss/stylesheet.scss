@@ -1296,7 +1296,7 @@ p {
 }
 
 //MEDIA
-@media(max-width: 1439px) {
+@media(max-width: 1600px) {
 
   //GENERAL
   .content-wrapper {
@@ -1746,7 +1746,7 @@ p {
 
 
 
-@media(max-width: 1023px) {
+@media(max-width: 1024px) {
 
   //GENERAL
   .content-wrapper {
@@ -2127,7 +2127,7 @@ p {
   }
 }
 
-@media(max-width: 767px) {
+@media(max-width: 768px) {
 
   //GENERAL
   .content-wrapper {
@@ -2496,6 +2496,10 @@ p {
     & .booking__form-datatime {
       flex-direction: column;
     }
+
+    & .content-wrapper {
+      padding: 90px 210px;
+    }
   }
 
   .booking__heading {
@@ -2559,7 +2563,7 @@ p {
   }
 }
 
-@media (max-width: 419px) {
+@media (max-width: 420px) {
 
   //GENERAL
   .content-wrapper {
@@ -2579,6 +2583,14 @@ p {
   .welcome__slider-item {
     width: 280px;
     height: 220px;
+  }
+
+  .header__burger-gallery>div {
+    padding: 0;
+  }
+
+  .header .footer__soci {
+    display: none;
   }
 
   //EXPLORE

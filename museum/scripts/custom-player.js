@@ -1,27 +1,41 @@
 export default function customPlayer() {
-  const container = document.querySelector('.player'),
-    player = document.querySelector('.player__preview video'),
-    controls = document.querySelector('.player__controls'),
-    progress = document.querySelectorAll('.player__range'),
-    startMainButton = document.querySelector('.player__play'),
-    startButton = document.querySelector('.player__stop'),
-    soundButton = document.querySelector('.player__volume'),
-    duration = document.querySelector('.player__duration-range'),
-    volume = document.querySelector('.volume__range'),
-    fullscreenButton = document.querySelector('.player__fullscreen');
+  const container = document.querySelector(".player"),
+    player = document.querySelector(".player__preview video"),
+    controls = document.querySelector(".player__controls"),
+    progress = document.querySelectorAll(".player__range"),
+    startMainButton = document.querySelector(".player__play"),
+    startButton = document.querySelector(".player__stop"),
+    soundButton = document.querySelector(".player__volume"),
+    duration = document.querySelector(".player__duration-range"),
+    volume = document.querySelector(".volume__range"),
+    fullscreenButton = document.querySelector(".player__fullscreen");
 
-  container.addEventListener('click', controlsHandler);
-  duration.addEventListener('input', (event) => {
+  let debouncer = false;
+
+  container.addEventListener("click", controlsHandler);
+  duration.addEventListener("input", (event) => {
+    player.removeEventListener("timeupdate", timeUpdateHandler);
     player.currentTime = event.target.value;
-    duration.style.background = `linear-gradient(to right, #710707 0%, #710707 ${event.target.value}%, #C4C4C4 ${event.target.value}%)`
+    duration.style.background = `linear-gradient(to right, #710707 0%, #710707 ${
+      Math.round(player.currentTime) * (100 / player.duration)
+    }%, #C4C4C4 ${Math.round(player.currentTime) * (100 / player.duration)}%)`;
+    player.addEventListener("timeupdate", timeUpdateHandler);
   });
-  volume.addEventListener('input', (event) => {
+  volume.addEventListener("input", (event) => {
     player.volume = event.target.value / 10;
-    volume.style.background = `linear-gradient(to right, #710707 0%, #710707 ${event.target.value * 10}%, #C4C4C4 ${event.target.value * 10}%)`;
-    if (!player.volume) { player.muted = false; soundToggler(); }
-    if (player.volume) { player.muted = true; soundToggler(); }
+    volume.style.background = `linear-gradient(to right, #710707 0%, #710707 ${
+      event.target.value * 10
+    }%, #C4C4C4 ${event.target.value * 10}%)`;
+    if (!player.volume) {
+      player.muted = false;
+      soundToggler();
+    }
+    if (player.volume) {
+      player.muted = true;
+      soundToggler();
+    }
   });
-  document.addEventListener('fullscreenchange', (event) => {
+  document.addEventListener("fullscreenchange", (event) => {
     if (document.fullscreenElement) {
       fullscreenButton.innerHTML = `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M28.2554 7.74495H35.9764V12.8119H23.1874V0.0229492H28.2544V7.74395L28.2554 7.74495ZM23.1884 35.976V23.1869H35.9774V28.2539H28.2564V35.9749H23.1894L23.1884 35.976ZM7.74544 7.74495V0.0239492H12.8124V12.8129H0.0234375V7.74595H7.74444L7.74544 7.74495ZM0.0244375 28.2549V23.1879H12.8134V35.977H7.74644V28.2559H0.0254375L0.0244375 28.2549Z" fill="#B3B3B3"/>
@@ -34,37 +48,45 @@ export default function customPlayer() {
     <path d="M23.05 0V4.24H31.48V12.71H35.7001V0H23.05Z" fill="#B3B3B3"/>
     </svg>
     `;
-      controls.style.justifyContent = '';
-      player.style.height = '';
+      controls.style.justifyContent = "";
+      player.style.height = "";
     }
   });
-  player.addEventListener('timeupdate', event => {
-    duration.value = player.currentTime;
-    duration.style.background = `linear-gradient(to right, #710707 0%, #710707 ${player.currentTime * (100 / player.duration)}%, #C4C4C4 ${player.currentTime * (100 / player.duration)}%)`
-  });
-  player.addEventListener('ended', (event) => {
+  player.addEventListener("timeupdate", timeUpdateHandler);
+  function timeUpdateHandler(event) {
+    if (debouncer) return;
+    debouncer = true;
+    setTimeout(() => (debouncer = false), 1000);
+    const current = Math.round(player.currentTime);
+    duration.value = current;
+    duration.style.background = `linear-gradient(to right, #710707 0%, #710707 ${
+      current * (100 / player.duration)
+    }%, #C4C4C4 ${current * (100 / player.duration)}%)`;
+  }
+  player.addEventListener("ended", (event) => {
     playToggler();
   });
-  document.addEventListener('keypress', (event) => {
-    if (document.querySelector('.form-active')) return;
-    if (event.code === 'Space') playToggler();
-    if (event.code === 'KeyM') soundToggler();
-    if (event.code === 'KeyF') fullscreenToggler();
-    if (event.shiftKey && event.code === 'Comma') player.playbackRate++;
-    if (event.shiftKey && event.code === 'Period') player.playbackRate--;
+  document.addEventListener("keypress", (event) => {
+    if (document.querySelector(".form-active")) return;
+    if (event.code === "Space") playToggler();
+    if (event.code === "KeyM") soundToggler();
+    if (event.code === "KeyF") fullscreenToggler();
+    if (event.shiftKey && event.code === "Comma") player.playbackRate++;
+    if (event.shiftKey && event.code === "Period") player.playbackRate--;
   });
   duration.max = player.duration;
 
   function controlsHandler(event) {
     let target = event.target;
-    if (target.closest('.player__play') || target.closest('.player__preview')) playToggler();
-    if (target.closest('.player__stop')) playToggler();
-    if (target.closest('.player__volume')) soundToggler();
-    if (target.closest('.player__fullscreen')) fullscreenToggler();
+    if (target.closest(".player__play") || target.closest(".player__preview"))
+      playToggler();
+    if (target.closest(".player__stop")) playToggler();
+    if (target.closest(".player__volume")) soundToggler();
+    if (target.closest(".player__fullscreen")) fullscreenToggler();
   }
   function play() {
-    startMainButton.style.display = 'none';
-    startButton.classList.add('player__active');
+    startMainButton.style.display = "none";
+    startButton.classList.add("player__active");
     startButton.innerHTML = `<svg width="21" height="30" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M8 29.0471V0.944802C8 0.421605 7.55026 0 6.98347 0H1.01653C0.449742 0 0 0.421605 0 0.944802V29.0471C0 29.5703 0.449742 30 1.01653 30H6.98347C7.55026 30 8 29.5784 8 29.0471Z" fill="#B3B3B3"/>
     <path d="M19.9835 0H14.0165C13.4584 0 13 0.421605 13 0.944802V29.0471C13 29.5703 13.4497 30 14.0165 30H19.9835C20.5416 30 21 29.5784 21 29.0471V0.944802C21 0.421605 20.5503 0 19.9835 0Z" fill="#B3B3B3"/>
@@ -72,13 +94,13 @@ export default function customPlayer() {
     player.play();
   }
   function playToggler() {
-    if (startButton.classList.contains('player__active')) {
+    if (startButton.classList.contains("player__active")) {
       player.pause();
-      startButton.classList.remove('player__active');
+      startButton.classList.remove("player__active");
       startButton.innerHTML = `<svg width="23" height="30" viewBox="0 0 23 30" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M22.35 14.75L0 0C0 22.23 0 11.32 0 29.49L22.35 14.75Z" fill="#B3B3B3"/>
-      </svg>`
-      startMainButton.style.display = 'block';
+      </svg>`;
+      startMainButton.style.display = "block";
       return;
     } else {
       play();
@@ -105,11 +127,10 @@ export default function customPlayer() {
   function fullscreenToggler() {
     if (document.fullscreenElement) {
       document.exitFullscreen();
-    }
-    else {
+    } else {
       const height = getComputedStyle(controls).height;
       container.requestFullscreen();
-      controls.style.justifyContent = 'space-around';
+      controls.style.justifyContent = "space-around";
       player.style.height = `calc(100vh - ${height})`;
     }
   }
